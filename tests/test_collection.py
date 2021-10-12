@@ -1,6 +1,6 @@
 
-from madlib_cli.madlib import read_template
-
+from madlib_cli.madlib import read_template,parse_template
+import pytest
 
 def test_read_template_returns_stripped_string():
     actual = read_template("assets/dark_and_stormy_night_template.txt")
@@ -8,16 +8,16 @@ def test_read_template_returns_stripped_string():
     assert actual == expected
 
 
-# @pytest.mark.skip("pending")
-# def test_parse_template():
-#     actual_stripped, actual_parts = parse_template(
-#         "It was a {Adjective} and {Adjective} {Noun}."
-#     )
-#     expected_stripped = "It was a {} and {} {}."
-#     expected_parts = ("Adjective", "Adjective", "Noun")
+@pytest.mark.skip("pending")
+def test_parse_template():
+    actual_stripped, actual_parts = parse_template(
+        "It was a {Adjective} and {Adjective} {Noun}."
+    )
+    expected_stripped = "It was a {} and {} {}."
+    expected_parts = ("Adjective", "Adjective", "Noun")
 
-#     assert actual_stripped == expected_stripped
-#     assert actual_parts == expected_parts
+    assert actual_stripped == expected_stripped
+    assert actual_parts == expected_parts
 
 
 # @pytest.mark.skip("pending")

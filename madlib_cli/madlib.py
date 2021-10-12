@@ -20,8 +20,15 @@ def read_template(path):
     file=f.read()
     return file
     
-        
-            
+def parse_template(text):
+    x=re.sub("{.*?}","{}",text) 
+    
+    y=re.findall(r"(?<=\{).+?(?=\})", text) 
+    
+    return (str(x),tuple(y))
+
+# parse_template("It was a {Adjective} and {Adjective} {Noun}."
+    # )            
     #     def read_template():
     # while(lets_go !="q"):
     #     try:
